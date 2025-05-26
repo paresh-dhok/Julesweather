@@ -110,17 +110,27 @@ This project implements a comprehensive weather and environmental monitoring sys
 1.  **Prerequisites:** Node.js and npm installed.
 2.  Navigate to the `backend_server` directory.
 3.  Run `npm install` to install dependencies.
-4.  **Local Development:**
+
+4.  **Deployment to Vercel (Recommended):**
+    *   Ensure you have a Vercel account.
+    *   The `backend_server` directory now includes a `vercel.json` file, which configures the deployment for Vercel.
+    *   **Steps:**
+        1.  Push your project (including the `backend_server` directory with `server.js`, `package.json`, and `vercel.json`) to a Git provider (e.g., GitHub).
+        2.  On Vercel, create a new project and import this Git repository.
+        3.  Set the "Framework Preset" to "Other" if Vercel doesn't auto-detect Node.js correctly (though it usually does with `vercel.json` present).
+        4.  Set the "Root Directory" to `backend_server` during project import on Vercel. This is crucial for Vercel to find `server.js` and `vercel.json` in the correct context.
+        5.  Vercel will use `vercel.json` to build and deploy `server.js` as a serverless function.
+        6.  Configure any necessary Environment Variables in the Vercel project settings (e.g., `ESP32_CAM_IP` if you use a dynamic IP for the ESP32 and want to configure it here, or database connection strings if you add a persistent database).
+        7.  Your API will be available at the URL Vercel provides.
+
+5.  **Local Development:**
     *   Run `npm start` to start the server locally (typically on `http://localhost:3000`).
     *   You might need to set the `ESP32_CAM_IP` environment variable if your ESP32-CAM's IP is not the placeholder.
-5.  **Deployment Options:**
-    *   **Heroku:**
-        *   The `Procfile` (`web: node server.js`) is included, making it Heroku-ready.
-        *   Commit to a Git repository, create a Heroku app, and deploy.
-        *   Set necessary environment variables on Heroku (e.g., `ESP32_CAM_IP`).
-    *   **Vercel/Netlify (Serverless Functions):**
-        *   The current Express server structure is more suited for traditional Node.js hosting (like Heroku) or a VPS.
-        *   For Vercel/Netlify, you would typically refactor the endpoints into serverless functions. Vercel can sometimes auto-detect Express apps, but it's good to check their specific Node.js deployment guides.
+
+6.  **Alternative: Deployment to Heroku:**
+    *   The `Procfile` (`web: node server.js`) is included in the `backend_server` directory for Heroku deployment.
+    *   Commit to a Git repository, create a Heroku app, set the buildpack to Node.js, and deploy.
+    *   Set necessary environment variables on Heroku.
 
 ### Frontend (`frontend_website/`)
 
