@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Station Dashboard</title>
+    <link rel="stylesheet" href="style.css"> <!-- Shared or new CSS -->
+    <!-- <link rel="stylesheet" href="dashboard.css"> -->
+</head>
+<body>
+    <div class="dashboard-container">
+        <h1>Weather Station Dashboard</h1>
+        
+        <div class="controls">
+            <button id="getCurrentData">Get Current Data (from ESP32)</button>
+            <select id="dataPeriod">
+                <option value="past_10_min">Past 10 Minutes (Server)</option>
+                <option value="past_hour">Past Hour (Server)</option>
+                <option value="today">Today (Server)</option>
+                <!-- Add specific date input later if needed -->
+            </select>
+            <button id="getHistoricalData">Get Historical Data (from Server)</button>
+        </div>
+
+        <h2>Current Sensor Readings:</h2>
+        <div id="currentDataDisplay">
+            <p>Loading...</p>
+        </div>
+
+        <h2>Historical Data:</h2>
+        <div id="historicalDataDisplay">
+            <p>Select a period and click 'Get Historical Data'.</p>
+            {/* Table or list will be populated here by JS */}
+        </div>
+
+        <!-- Image section placeholder for a later step -->
+        <h2>Live Image:</h2>
+        <div id="imageContainer">
+            <img id="weatherImage" src="#" alt="Weather Image" style="max-width: 320px; display: none;">
+            <p id="imageMessage">Image will appear here.</p>
+            <button id="captureImageBtn">Capture New Image</button>
+            <button id="downloadImageBtn" style="display:none;">Download Image</button>
+        </div>
+
+    </div>
+    <script src="dashboard.js"></script>
+</body>
+</html>
